@@ -26,8 +26,6 @@ env:
   CONFIG_FILE: .config
   DIY_P1_SH: script_1.sh
   DIY_P2_SH: script_2.sh
-  DIY_P3_SH: script_3.sh
-  DIY_P4_SH: script_4.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
@@ -79,14 +77,8 @@ jobs:
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
-        chmod +x $DIY_P3_SH
-        chmod +x $DIY_P4_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-        cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P3_SH
-        cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P4_SH
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
